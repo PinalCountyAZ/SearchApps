@@ -12,16 +12,24 @@ body {
     font-size: 0.875rem;
 }
 
+.row {
+    justify-content: center;
+}
+
+.inmate-image {
+    border-radius: 10px;    
+}
+
 h1, h2, h3, h4, h5, h6 {
     color: #2f4a58;
     font-weight: 700;
     text-transform: uppercase;
 }
 
-    a h6:hover {
-        color: #447c7c;
-        text-decoration: underline;
-    }
+a h6:hover {
+    color: #447c7c;
+    text-decoration: underline;
+}
 
 a, a:visited {
     color: #454545;
@@ -35,6 +43,20 @@ a, a:visited {
         text-decoration: underline;
         background-color: #fafafa;
     }
+
+.inmate-image-link a {
+    text-decoration: none;
+    margin: 1rem;
+}
+
+    .inmate-image-link a:hover {
+        text-decoration: underline;
+    }
+
+        .inmate-image-link a:hover .repeater-inmates {
+            text-decoration: underline;
+            background-color: #f5f3eb;
+        }
 
 /* ======================================================== */
 
@@ -118,10 +140,10 @@ hr.header-title {
     padding: 10px;
 }
 
-.disclaimer p {
-    font-size: 0.875rem;
-    font-weight: normal;
-}
+    .disclaimer p {
+        font-size: 0.875rem;
+        font-weight: normal;
+    }
 /* ======================================================== */
 
 
@@ -158,7 +180,7 @@ hr.header-title {
         text-decoration: underline;
         padding: 5px 40px;
         transition: 0.6s;
-        box-shadow:  0px 20px 30px rgba(0, 0, 0, 0.35);
+        box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.35);
     }
 
 /* ======================================================== */
@@ -173,15 +195,15 @@ hr.header-title {
     border: 0px;
 }
 
-.table-condensed tr {
-    background: #e5e5e5;
-    border: 0px solid white;
-    border-width: 12px 0;
-}
+    .table-condensed tr {
+        background: #e5e5e5;
+        border: 0px solid white;
+        border-width: 12px 0;
+    }
 
-.table-condensed tr td a {
-    text-decoration: none;
-}
+        .table-condensed tr td a {
+            text-decoration: none;
+        }
 
 .table-plain {
     border: 0px solid #fafafa;
@@ -200,11 +222,25 @@ hr.header-title {
 }
 /* ======================================================== */
 
+/* || REPEATER Styles */
+.repeater-inmates {
+    text-transform: uppercase;
+    flex-grow: 0;
+    padding: .75rem;
+    background: #e9ecee;
+    color: #2f4a58;
+    border-width: 12px 0;
+    text-align: center;
+    font-size: 1.2em;
+    border-radius: 20px;
+    box-shadow: inset 0 2px 6px 0 rgba(0, 0, 0, .1);
+}
 
+/* ======================================================== */
 /* || FORM Styles */
 /* Form textbox font-size */
 .form-control {
-    font-size: .75rem
+    font-size: 1.25rem
 }
 
 hr.form-divider {
@@ -246,6 +282,7 @@ hr.form-divider {
     padding-left: 24px;
     font-weight: bold;
 }
+
     .compare-parcel a:hover {
         background: url('../images/link-hover.png') no-repeat;
         background-size: 15px;
@@ -259,6 +296,7 @@ hr.form-divider {
     padding-left: 24px;
     font-weight: bold;
 }
+
     .tax-information a:hover {
         background: url('../images/search-plus-hover.png') no-repeat;
         background-size: 15px;
@@ -272,6 +310,7 @@ hr.form-divider {
     padding-left: 24px;
     font-weight: bold;
 }
+
     .assessor-parcel-viewer a:hover {
         background: url('../images/location-hover.png') no-repeat;
         background-size: 15px;
@@ -285,6 +324,7 @@ hr.form-divider {
     padding-left: 24px;
     font-weight: bold;
 }
+
     .tax-chart a:hover {
         background: url('../images/pdf-file-hover.png') no-repeat;
         background-size: 15px;
@@ -298,6 +338,7 @@ hr.form-divider {
     padding-left: 24px;
     font-weight: bold;
 }
+
     .prop-address a:hover {
         background: url('../images/prop-address-hover.png') no-repeat;
         background-size: 18px;
@@ -312,6 +353,7 @@ hr.form-divider {
     font-weight: bold;
     background-position: 0 center;
 }
+
     .share-parcel a:hover {
         background: url('../images/share-hover.png') no-repeat;
         background-size: 14px;
@@ -327,6 +369,7 @@ hr.form-divider {
     font-weight: bold;
     background-position: 0 center;
 }
+
     .print-details a:hover {
         background: url('../images/print-hover.png') no-repeat;
         background-size: 18px;

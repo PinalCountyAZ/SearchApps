@@ -50,83 +50,22 @@
                     <!-- Inmate Details -->
                     <div class="details-section">
                         <div class="row">
-                            <div class="col-sm-2">
-                                <div class="detail"><asp:Image ID="imgInmate" CssClass="img-thumbnail" runat="server" /></div>
-                            </div>
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col-lg-12 col">
-                                        <div class="details-title">Inmate ID</div>
-                                        <div class="detail mb-1"><asp:Label ID="lblInmateID" runat="server" /></div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-4 col">
-                                        <div class="details-title">NAME</div>
-                                        <div class="detail mb-4"><asp:Label ID="lblName" runat="server" /></div>
-                                    </div>
-                                    <div class="col-lg-6 col">
-                                        <div class="details-title mt-1">Age</div>
-                                        <div class="detail mb-4"><asp:Label ID="lblAge" runat="server" /></div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="details-title">SEX</div>
-                                        <div class="detail mb-4"><asp:Label ID="lblSex" runat="server" /></div>
-                                        <div class="details-title">RACE</div>
-                                        <div class="detail"><asp:Label ID="lblRace" runat="server" /></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="details-title">EYES</div>
-                                        <div class="detail mb-4"><asp:Label ID="lblEyes" runat="server" /></div>
-                                        <div class="details-title">HAIR</div>
-                                        <div class="detail"><asp:Label ID="lblHair" runat="server" /></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="details-title">HEIGHT</div>
-                                        <div class="detail mb-4"><asp:Label ID="lblHeight" runat="server" /></div>
-                                        <div class="details-title">WEIGHT</div>
-                                        <div class="detail"><asp:Label ID="lblWeight" runat="server" /></div>
-                                    </div>
-                                </div>
+                            <div class="col-sm-6">
+                                <div class="detail">
+                                    <asp:Image ID="imgInmate" class="img-fluid" CssClass="img-thumbnail" runat="server" /></div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Case Information -->
-                    <div class="row text-center mt-5">
-                        <div class="col">
-                            <div class="details-section-title">CASE INFORMATION</div>
-                        </div>
-                    </div>
-                    <div class="details-section">
                         <div class="row">
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col">
-                                        <div style="border: none">
-                                            <asp:GridView ID="gvCases" CssClass="table table-responsive" GridLines="None" HorizontalAlign="Left" ShowHeader="true" runat="server"></asp:GridView>
-                                        </div>
-                                    </div>
+                            <div class="col-lg-3">
+                                <div class="details-title">Inmate ID</div>
+                                <div class="detail mb-1">
+                                    <asp:Label ID="lblInmateID" runat="server" />
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- Court dates -->
-                    <div class="row text-center mt-5">
-                        <div class="col">
-                            <div class="details-section-title">COURT HEARINGS</div>
-                        </div>
-                    </div>
-                    <div class="details-section">
-                        <div class="row">
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col">
-                                        <div style="border: none">
-                                            <asp:GridView ID="gvCourtDates" CssClass="table table-responsive" GridLines="None" HorizontalAlign="Left" ShowHeader="true" runat="server"></asp:GridView>
-                                        </div>
-                                    </div>
+                            <div class="col-lg-3">
+                                <div class="details-title">NAME</div>
+                                <div class="detail mb-4">
+                                    <asp:Label ID="lblName" runat="server" />
                                 </div>
                             </div>
                         </div>

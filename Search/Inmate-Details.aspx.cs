@@ -26,8 +26,8 @@ namespace Search
             string inmatelID = Request.QueryString["id"];
 
             GetDetails(inmatelID);
-            GetCases(inmatelID);
-            GetCourtDates(inmatelID);
+            //GetCases(inmatelID);
+            //GetCourtDates(inmatelID);
         }
 
         private void GetDetails(string id)
@@ -48,94 +48,12 @@ namespace Search
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
+                    string FirstInitial = (dr["FirstName"].ToString()).Substring(0,1);
                     // *** Inmate Details *** //
                     imgInmate.ImageUrl = "https://app1.pinal.gov/Files/MugShots/" + subFolder + "/" + id + ".jpg";
                     lblInmateID.Text = dr["InmateID"].ToString();
-                    lblName.Text = dr["Name"].ToString();
-                    lblAge.Text = dr["Age"].ToString();
-                    lblRace.Text = dr["Race"].ToString();
-                    lblSex.Text = dr["Sex"].ToString();
-                    lblHair.Text = dr["Hair"].ToString();
-                    lblEyes.Text = dr["Eyes"].ToString();
-                    lblWeight.Text = dr["Weight"].ToString();
-                    lblHeight.Text = dr["Height"].ToString();
+                    lblName.Text = FirstInitial + " " + dr["LastName"].ToString();
                 }
-
-                dr.Close();
-            }
-        }
-
-        private void GetCases(string id)
-        {
-            // *** Stored Procedure *** //
-            string CasesProcedure = "[dbo].[spGetBookingInfo]";
-
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand(CasesProcedure, con);
-                SqlDataReader dr;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("@InmateID", SqlDbType.VarChar).Value = id;
-                cmd.CommandTimeout = 0;
-                dr = cmd.ExecuteReader();
-
-                var dt = new DataTable();
-                dt.Columns.Add("CASE NUMBER", typeof(System.String));
-                dt.Columns.Add("BOND AMOUNT", typeof(System.String));
-                dt.Columns.Add("BOND TYPE", typeof(System.String));
-                dt.Columns.Add("STATUTE CODE", typeof(System.String));
-                dt.Columns.Add("ARRIVAL DATE", typeof(System.String));
-
-                while (dr.Read())
-                {
-                    string caseNum = dr["casenumber"].ToString();
-                    string bondAmt = dr["Amount"].ToString();
-                    string type = dr["type"].ToString();
-                    string statuteCode = dr["StatuteCode"].ToString();
-                    string arrivalDate = dr["arrivaldt"].ToString();
-
-                    dt.Rows.Add(caseNum, bondAmt, type, statuteCode, arrivalDate);
-                }
-
-                gvCases.DataSource = dt;
-                gvCases.ShowHeader = true;
-                gvCases.DataBind();
-
-                dr.Close();
-            }
-        }
-
-        private void GetCourtDates (string id)
-        {
-            // *** Stored Procedure *** //
-            string courtDatesProcedure = "[dbo].[spGetEventInfo]";
-
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand(courtDatesProcedure, con);
-                SqlDataReader dr;
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("@InmateID", SqlDbType.VarChar).Value = id;
-                cmd.CommandTimeout = 0;
-                dr = cmd.ExecuteReader();
-
-                var dt = new DataTable();
-                dt.Columns.Add("COURT DATE", typeof(System.String));
-                dt.Columns.Add("HEARING", typeof(System.String));
-
-                while (dr.Read())
-                {
-                    string eventDate = dr["EventDate"].ToString();
-                    string remarks = dr["Remarks"].ToString();
-
-                    dt.Rows.Add(eventDate, remarks);
-                }
-
-                gvCourtDates.DataSource = dt;
-                gvCourtDates.ShowHeader = true;
-                gvCourtDates.DataBind();
 
                 dr.Close();
             }

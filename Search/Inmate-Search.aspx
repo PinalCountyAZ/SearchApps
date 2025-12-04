@@ -34,53 +34,60 @@
                 <hr class="header-title" />
                 <h2 class="header-title mb-5">Inmate Search</h2>
             </div>
-            <!-- Message -->
-            <div class="message mt-5">
-                <h4>MESSAGE</h4>
-                <p>
-                    This search is currently offline. 
-                </p>
-                <p>
-                    Media requests may be submitted using our <a href="https://pinalcountyazso.govqa.us/WEBAPP/_rs/(S(g1qvleth55mman140mj33g0g))/RequestLogin.aspx" target="_blank">Records Request Portal</a>.
-                </p>
-                <p>
-                    Public inquiries regarding inmates may call the Jail Inmate Information number at (855)355-0358.
-                </p>
-            </div>
-            <%--<form runat="server">
+            <form runat="server">
                 <h5 class="header-title">INMATE</h5>
                 <div class="row">
-                    <div class="col-lg-3 col-sm-12 align-self-center pb-2">
-                        <asp:TextBox ID="txtLastName" CssClass="form-control" placeholder="LAST NAME" runat="server" />
-                    </div>
-                    <div class="col-lg-3 col-sm-12 align-self-center pb-2">
-                        <asp:TextBox ID="txtFirstName" CssClass="form-control" placeholder="FIRST NAME" runat="server" />
-                    </div>
-                    <div class="col-lg-4 col-sm-12 align-self-center pb-2">
-                        <asp:TextBox ID="txtInmateID" CssClass="form-control" placeholder="INMATE ID" runat="server" />
+                    <div class="col-lg-10 col-sm-12 align-self-center pb-2">
+                        <asp:TextBox ID="txtLastName" CssClass="form-control" placeholder="LAST NAME or INMATE ID" runat="server" />
                     </div>
                     <div class="col-2 align-self-center pb-2">
                         <asp:Button ID="btnSearch" Text="Search" CssClass="btn button-primary button-responsive" OnClick="btn_Click" runat="server" />
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-10">
-                        <div class="ml-2">
+                    <div class="col-12">
+                        <div class="row ml-2">
                             <asp:Label ID="lblWarning" CssClass="alert-light" runat="server"></asp:Label>
                         </div>
-                        <asp:GridView ID="gvInmates" CssClass="table table-condensed" AutoGenerateColumns="false" AllowPaging="true" PageSize="10" OnPageIndexChanging="gv_PageIndexChanging" OnRowDataBound="gv_RowDataBound" runat="server">
-                            <Columns>
-                                <asp:HyperLinkField HeaderText="INMATE ID" DataNavigateUrlFields="INMATEID" DataNavigateUrlFormatString="Inmate-Details.aspx?id={0}" DataTextField="INMATEID" />
-                                <asp:BoundField HeaderText="LAST NAME" DataField="LASTNAME" />
-                                <asp:BoundField HeaderText="FIRST NAME" DataField="FIRSTNAME" />
-                            </Columns>
-                            <HeaderStyle CssClass="grid-header" />
-                            <PagerStyle CssClass="grid-pager" />
-                            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White"></FooterStyle>
-                        </asp:GridView>
+                        <div class="row inmate-image-link">
+                            <asp:Repeater ID="rptrInmates" runat="server">
+                                <ItemTemplate>
+                                    <a href='<%# Eval("IMAGEPATH") %>' target="_blank">
+                                        <div class="col repeater-inmates">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <asp:Image CssClass="inmate-image" ID="inmateImage" ImageUrl='<%# Eval("IMAGEPATH") %>' Width="300" runat="server" />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <asp:Label ID="FIRSTINITIAL" Text='<%#Eval("FIRSTNAME").ToString().Substring(0,1) %>' runat="server"></asp:Label>
+                                                    <asp:Label ID="INMATENAME" Text='<%#Bind("LASTNAME") %>' runat="server"></asp:Label>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <asp:Label ID="INMATEID" Text='<%#Bind("INMATEID") %>' runat="server"></asp:Label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </div>
+                    </div>
+                    <!-- Disclaimer -->
+                    <div class="disclaimer mt-5">
+                        <div>DISCLAIMER</div>
+                        <p>
+                            The search engine lists individuals who are currently incarcerated in the Pinal County Jail. Inclusion in this search does not indicate guilt, only that the individual is or has been incarcerated.
+                        </p>
+                        <p>
+                            This information is updated every 60 minutes. When an individual's information is entered into the Pinal County Inmate data base, the information will be updated to this listing during the next regularly scheduled update. When an individual is released from jail, they will no longer appear in these listings.
+                        </p>
                     </div>
                 </div>
-            </form>--%>
+            </form>
         </div>
     </div>
 
