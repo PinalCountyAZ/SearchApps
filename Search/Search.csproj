@@ -119,6 +119,7 @@
     <Content Include="images\location-hover.png" />
     <Content Include="images\location.png" />
     <Content Include="images\Logo.png" />
+    <Content Include="images\no-photo-available-icon.jpg" />
     <Content Include="images\pdf-file-hover.png" />
     <Content Include="images\pdf-file.png" />
     <Content Include="images\placeholder-384X215.png" />

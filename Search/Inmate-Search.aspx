@@ -52,7 +52,7 @@
                         <div class="row inmate-image-link">
                             <asp:Repeater ID="rptrInmates" runat="server">
                                 <ItemTemplate>
-                                    <a href='<%# Eval("IMAGEPATH") %>' target="_blank">
+                                    <%--<a href='<%# Eval("IMAGEPATH") %>' target="_blank">
                                         <div class="col repeater-inmates">
                                             <div class="row">
                                                 <div class="col">
@@ -71,7 +71,25 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </a>
+                                    </a>--%>
+                                    <div class="col repeater-inmates" style="margin:10px">
+                                        <div class="row">
+                                            <div class="col">
+                                                <asp:Image CssClass="nmate-image" ID="inmateImage" ImageUrl="images/no-photo-available-icon.jpg" Width="200" runat="server" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <asp:Label ID="FIRSTINITIAL" Text='<%#Eval("FIRSTNAME").ToString().Substring(0,1) %>' runat="server"></asp:Label>
+                                                <asp:Label ID="INMATENAME" Text='<%#Bind("LASTNAME") %>' runat="server"></asp:Label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <asp:Label ID="INMATEID" Text='<%#Bind("INMATEID") %>' runat="server"></asp:Label>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </ItemTemplate>
                             </asp:Repeater>
                         </div>
