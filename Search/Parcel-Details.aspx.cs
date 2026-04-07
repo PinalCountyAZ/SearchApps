@@ -90,7 +90,7 @@ namespace Search
             hlCompProp.NavigateUrl = "https://app1.pinal.gov/Comparables/index.html?APN=" + parcelID;
             hlTaxInfo.NavigateUrl = "https://treasurer.pinal.gov/ParcelInquiry?parcelnumber=" + parcelID;
             hlParcelViewer.NavigateUrl = "https://experience.arcgis.com/experience/f19af3d40ed54a979ecb678ee4980a3c/#data_s=where%3AdataSource_1-TaxParcels_8963%3APARCELID%3D%27" + parcelID + "%27&zoom_to_selection=true";
-            hlTaxChart.NavigateUrl = "https://www.pinal.gov/DocumentCenter/View/11053/VALYRCHART";
+            hlTaxChart.NavigateUrl = "https://www.pinal.gov/DocumentCenter/View/12347/VALYRCHART";
 
             // *** Stored Procedure *** //
             string detailsProcedure = "[dbo].[Sp_search_detailsinfobyparcelyear_cama]";
