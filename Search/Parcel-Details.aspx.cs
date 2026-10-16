@@ -16,6 +16,7 @@ namespace Search
     public partial class Parcel_Details : System.Web.UI.Page
     {
         string isRedacted;
+
         // *** Connection Strings *** //
         string connectionString = ConfigurationManager.ConnectionStrings["AssessorConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
@@ -85,6 +86,7 @@ namespace Search
         {
             string parcelnum = book + "-" + map + "-" + parcel + split;     // parcelnum is parcelID with dashes
             string copyText = "https://app1.pinal.gov/Search/Parcel-Details.aspx?parcel_ID=" + parcelID;
+            List<string> llcValues = new List<string>();
 
             hfCopy.Value = copyText;        // link for Share this parcel
             hlCompProp.NavigateUrl = "https://app1.pinal.gov/Comparables/index.html?APN=" + parcelID;
@@ -242,6 +244,8 @@ namespace Search
                         if (llc != "")
                         {
                             lblLandLegalClass.Text = drDetails["land_lg_cl"].ToString() + "-" + drDetails["land_descr"].ToString();
+
+                            llcValues.Add(llc);
                         }
                         else { lblLandLegalClass.Text = "Not Given"; }
 
@@ -265,6 +269,12 @@ namespace Search
                         }
                         else lblAttachedProp.Text = "No Personal Property Listed";
                     }
+                    if (llcValues.Contains("02P") || llcValues.Contains("02RI") || llcValues.Contains("02RL"))
+                    {
+                        lblNonProfit.Text = "Yes";
+                    }
+                    else lblNonProfit.Text = "No";
+
                     lblValInfoMessage.Visible = false;
                     valInfo.Visible = true;
                 }

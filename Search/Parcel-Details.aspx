@@ -367,9 +367,13 @@
                                     <div class="details-title">WIDOWER</div>
                                     <div><asp:Label ID="lblWidower" runat="server" /></div>
                                 </div>
-                                <div class="col-lg-3 col-sm-12">
+                                <div class="col-lg-3 col-sm-12 pb-2">
                                     <div class="details-title">SENIOR FREEZE</div>
                                     <div><asp:Label ID="lblSrFreeze" runat="server" /></div>
+                                </div>
+                                <div class="col-lg-3 col-sm-12">
+                                    <div class="details-title">NON-PROFIT</div>
+                                    <div><asp:Label ID="lblNonProfit" runat="server" /></div>
                                 </div>
                             </div>
                         </div>
